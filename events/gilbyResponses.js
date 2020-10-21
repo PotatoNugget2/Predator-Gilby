@@ -1,5 +1,8 @@
 const triggerWords = [];
 triggerWords['hey'] = { text: `Hello! :slight_smile: ` };
+triggerWords['hi'] = triggerWords['hey'];
+triggerWords['hello'] = triggerWords['hey'];
+triggerWords['happy'] = { text: `Happy is my favorite word!` };
 triggerWords['sorry'] = { text: `It's okay, I forgive you! :smiling_face_with_3_hearts: ` };
 triggerWords['gilby'] = { words: 1, text: `Whats up! How are you doing? :sunglasses: ` };
 triggerWords['^'] = { words: 1, text: `^` };

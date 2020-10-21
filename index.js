@@ -11,6 +11,9 @@ const fs = require('fs');
 // Global Vars
 config = require('./config.json');
 client.registry
+    .registerGroups([
+        ['voice', 'Voice'],
+    ])
     .registerDefaultTypes()
     .registerDefaultGroups()
     .registerDefaultCommands({
