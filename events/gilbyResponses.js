@@ -20,6 +20,8 @@ module.exports = async (client, msg) => {
     if (triggers.length > 0) {
         // Set our trigger for use below
         let trigger = triggerWords[triggers[0]];
+        // Check if the trigger is actually in our list, for safety I guess
+        if (!trigger.text) { return; }
         // If the length of the word count is above our set trigger then return
         if (words.length > trigger.words) { return; }
         // Assuming we didn't get returned above we will send our trigger text
