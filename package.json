@@ -1,17 +1,29 @@
 {
-  "name": "predator-discord2",
+  "name": "predator-gilby",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "discord.js": "^12.3.1",
-    "discord.js-commando": "^0.11.0-dev",
-    "mysql": "^2.18.1"
+    "discord.js-commando": "^0.11.0-dev"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dr.Pepper",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Predator-Network/Predator-Gilby.git"
+  },
+  "keywords": [
+    "gilby",
+    "predator",
+    "network"
+  ],
+  "bugs": {
+    "url": "https://github.com/Predator-Network/Predator-Gilby/issues"
+  },
+  "homepage": "https://github.com/Predator-Network/Predator-Gilby#readme",
+  "description": ""
 }
