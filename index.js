@@ -13,6 +13,7 @@ config = require('./config.json');
 client.registry
     .registerGroups([
         ['voice', 'Voice'],
+        ['fun', 'Fun'],
     ])
     .registerDefaultTypes()
     .registerDefaultGroups()
