@@ -10,7 +10,7 @@ triggerWords['goodboy'] = { words: 1, text: `*pants*` };
 triggerWords['bye'] = { text: `:cry: Hope I get to see you again soon!!!!` };
 triggerWords['goodbye'] = triggerWords['bye'];
 
-module.exports = async (client, msg) => {
+module.exports.run = async (client, msg) => {
     // Check if the message is in a disallowed channel
     if (config.disabled_cat[msg.channel.parent.id]) { return; }
     // Shift everything to lowercase for proper triggers

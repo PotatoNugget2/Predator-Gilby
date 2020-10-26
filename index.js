@@ -38,4 +38,16 @@ fs.readdir("./events/", (err, files) => {
     });
 });
 
+client.util = new Map();
+fs.readdir("./util/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach(file => {
+        const util = require(`./util/${file}`);
+        const utilName = file.split(".")[0];
+
+        client.util.set(utilName, util);
+        console.log(`Added [${utilName}] to utility list`);
+    });
+});
+
 client.login(config.token);
