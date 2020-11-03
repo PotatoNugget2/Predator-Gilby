@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-var fs = require('fs'); // Include fs
+const fs = require('fs'); // Include fs
 var pets = require('../../pets.json'); // Set our pets from the file
 
 module.exports = class JoinVCCommand extends Command {

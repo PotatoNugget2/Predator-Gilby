@@ -1,6 +1,6 @@
 module.exports.run = (client, oldM, newM) => {
     // Calculate our diff
-    var diff = newM.roles.cache.difference(oldM.roles.cache);
+    let diff = newM.roles.cache.difference(oldM.roles.cache);
     // If diff above is 0 then return
     if (diff.size <= 0) { return; }
     // Search through the diff

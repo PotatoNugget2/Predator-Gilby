@@ -12,8 +12,8 @@ module.exports = class JoinVCCommand extends Command {
     }
 
     run(message, args) {
-        var guildMember = message.guild.member(this.client.user)
-        var voiceChannel = guildMember.voice.channel
+        let guildMember = message.guild.member(this.client.user)
+        let voiceChannel = guildMember.voice.channel
         if (!voiceChannel) { return message.channel.send(`I am not currently in a voice channel!`); }
         voiceChannel.leave();
     }

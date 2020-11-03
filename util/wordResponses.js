@@ -14,10 +14,10 @@ module.exports.run = async (client, msg) => {
     // Check if the message is in a disallowed channel
     if (config.disabled_cat[msg.channel.parent.id]) { return; }
     // Shift everything to lowercase for proper triggers
-    var content = msg.content.toLowerCase()
+    let content = msg.content.toLowerCase()
     // Go through our message and check if in triggerWords
-    var words = content.split(" ");
-    var triggers = words.filter(e => triggerWords[e]);
+    let words = content.split(" ");
+    let triggers = words.filter(e => triggerWords[e]);
     // Check length and only do first one
     if (triggers.length > 0) {
         // Set our trigger for use below
