@@ -5,4 +5,7 @@ module.exports = async (client, oldM, newM) => {
     // Run our divider check
     client.util.get('roleDividerCheck')
         .run(client, oldM, newM);
+    // Run our nickname check
+    client.util.get('nickCheck')
+        .run(client, oldM, newM);
 };
