@@ -48,7 +48,7 @@ module.exports = class CountingGame extends Game {
         // React to the message ANGRY !!!!
         msg.react('😡');
         // Reply with the reason
-        msg.reply(`**${msg.member.displayName}** ruined the count 😔, it got to **${data.count}**!\n**Reason**: ${reason}`)
+        msg.channel.send(`<@${msg.author.id}> ruined the count 😔, it got to **${data.count}**!\n**Reason**: ${reason}`)
         // Reset the count
         data.count = 0;
         // Write to our json file
