@@ -1,11 +1,10 @@
+const helper = require("../helper");
+
 module.exports = async (client, oldM, newM) => {
     // Run our role responses utility
-    client.util.get('roleResponses')
-        .run(client, oldM, newM);
+    helper.loaderRun('util', 'roleResponses', [client, oldM, newM]);
     // Run our divider check
-    client.util.get('roleDividerCheck')
-        .run(client, oldM, newM);
+    helper.loaderRun('util', 'roleDividerCheck', [client, oldM, newM]);
     // Run our nickname check
-    client.util.get('nickCheck')
-        .run(client, oldM, newM);
+    helper.loaderRun('util', 'nickCheck', [client, oldM, newM]);
 };

@@ -38,16 +38,36 @@ fs.readdir("./events/", (err, files) => {
     });
 });
 
-client.util = new Map();
-fs.readdir("./util/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach(file => {
-        const util = require(`./util/${file}`);
-        const utilName = file.split(".")[0];
+loader = {
+    util: {
+        dir: './util/',
+        map: new Map(),
+        class: false,
+    },
+    games: {
+        dir: './games/',
+        map: new Map(),
+        class: true,
+    },
+},
 
-        client.util.set(utilName, util);
-        console.log(`Added [${utilName}] to utility list`);
+Object.entries(loader).forEach(([name, data]) => {
+    fs.readdir(data.dir, (err, files) => {
+        if (err) return console.error(err);
+        files.forEach(file => {
+            if (file.indexOf('.js') !== -1) {
+                let util = require(data.dir + file);
+                let utilName = file.split(".")[0];
+
+                if (data.class) {
+                    data.map.set(utilName, new util(client))
+                } else {
+                    data.map.set(utilName, util);
+                }
+                console.log(`Added [${utilName}] to ${name} list`);
+            }
+        });
     });
-});
+})
 
 client.login(config.token);
