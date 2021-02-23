@@ -4,7 +4,9 @@ module.exports = class RollGame extends Game {
     constructor(client) {
         super(client, {
             name: 'Roll',
-            channel: config.games.main.channel,
+            channel: {
+                id: config.games.main.channel,
+            },
             throttling: {
                 usages: 5,
                 duration: 10,

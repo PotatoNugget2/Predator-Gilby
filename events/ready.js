@@ -18,4 +18,13 @@ module.exports = async (client) => {
     setInterval(() => {
         client.user.setActivity(topics[Math.floor(topics.length * Math.random())]);
     }, 60000);
+
+    // Find our exclusive games
+    client._exclusiveGames = []
+    loader.games.map.forEach((e) => {
+        if (e.channel.exclusive) {
+            client._exclusiveGames[e.channel.id] = e;
+        }
+    })
+    
 }

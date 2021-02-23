@@ -1,11 +1,12 @@
 const Game = require('./classes/base.js')
 
-module.exports = class CoinGame extends Game {
+module.exports = class CountingGame extends Game {
     constructor(client) {
         super(client, {
-            name: 'Coin',
+            name: 'Counting',
             channel: {
-                id: config.games.main.channel,
+                id: '813625541780832287',
+                exclusive: true,
             },
             throttling: {
                 usages: 5,
@@ -15,6 +16,6 @@ module.exports = class CoinGame extends Game {
     }
 
     run(msg, args) {
-        msg.reply(`🪙 I have flipped a coin and it landed on **${(Math.random() <= .5) ? 'Heads' : 'Tails' }**`);
+        //
     }
 }
