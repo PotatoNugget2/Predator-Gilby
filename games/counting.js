@@ -3,8 +3,6 @@ const fs = require('fs'); // Include fs
 
 var { evaluate } = require('mathjs')
 var data = require('./data/counting.json');
-const { config } = require('process');
-console.log(data);
 
 module.exports = class CountingGame extends Game {
     constructor(client) {
