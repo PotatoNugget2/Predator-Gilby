@@ -13,6 +13,10 @@ module.exports = class PlayVCCommand extends Command {
             memberName: 'play',
             description: 'Plays the specified sound effect in current channel.',
             guildOnly: true,
+            throttling: {
+                usages: 2,
+                duration: 5
+            },
             args: [
                 {
                     key: 'sound',
