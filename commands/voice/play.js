@@ -38,7 +38,7 @@ module.exports = class PlayVCCommand extends Command {
             let data = [];
 
             Object.values(audioFiles).forEach((r) => {
-                data += `**gilby play ${r.name}**\n\n`;
+                data += `**gilby play ${r.name}**\n`;
             });
 
             message.channel.send({
