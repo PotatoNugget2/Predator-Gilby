@@ -6,6 +6,7 @@ module.exports = class JoinVCCommand extends Command {
             name: 'leave',
             group: 'voice',
             memberName: 'leave',
+            aliases: ['stop'],
             description: 'Leaves currently connected voice channel',
             guildOnly: true,
         })

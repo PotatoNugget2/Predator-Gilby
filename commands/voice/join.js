@@ -11,7 +11,7 @@ module.exports = class JoinVCCommand extends Command {
         })
     }
 
-    run(message, args) {
+    async run(message, args) {
         if (!message.member.voice.channel) { return message.channel.send(`I can't join you currently :(`); }
         message.member.voice.channel.join();
     }
