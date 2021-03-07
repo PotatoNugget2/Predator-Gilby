@@ -7,7 +7,7 @@ module.exports.run = async (client, msg) => {
     let loadedGame = loader.games.map.get(args.splice(0, 2)[1]) || client._exclusiveGames[msg.channel.id]; // Get our game from the args
     // If no game then return
     if (!loadedGame) { return; }
-    if (loadedGame.channel.id && (loadedGame.channel.id !== msg.channel.id)) { return; } // Check if its channel locked
+    if (loadedGame.channel && (loadedGame.channel.id !== msg.channel.id)) { return; } // Check if its channel locked
     // Check for throttle
     const throttle = loadedGame.throttle(msg.author.id);
     if (throttle && throttle.usages + 1 > loadedGame.throttling.usages) {

@@ -22,7 +22,7 @@ module.exports = async (client) => {
     // Find our exclusive games
     client._exclusiveGames = []
     loader.games.map.forEach((e) => {
-        if (e.channel.exclusive) {
+        if (e.channel && e.channel.exclusive) {
             client._exclusiveGames[e.channel.id] = e;
         }
     })

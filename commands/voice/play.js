@@ -68,4 +68,8 @@ module.exports = class PlayVCCommand extends Command {
             message.reply(":face_with_raised_eyebrow: Seems like I don't have that tune, run `gilby play` to get the ones that I do have.")
         }
     }
+
+    onError(err, message) {
+        message.reply(`**ERROR**: ${err.message}`);
+    }
 }
