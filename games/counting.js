@@ -1,5 +1,4 @@
 const Game = require('./classes/base.js')
-const fs = require('fs'); // Include fs
 
 var { evaluate } = require('mathjs')
 var data = require('./data/counting.json');
@@ -37,7 +36,7 @@ module.exports = class CountingGame extends Game {
         data.last = msg.author.id;
         data.count++;
         // Write to our json file
-        fs.writeFileSync('./games/data/counting.json', JSON.stringify(data))
+        this.save(data);
     }
 
     /**
@@ -52,6 +51,6 @@ module.exports = class CountingGame extends Game {
         // Reset the count
         data.count = 0;
         // Write to our json file
-        fs.writeFileSync('./games/data/counting.json', JSON.stringify(data))
+        this.save(data);
     }
 }

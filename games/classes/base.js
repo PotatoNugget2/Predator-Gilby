@@ -1,3 +1,5 @@
+const fs = require('fs'); // Include fs
+
 class Game {
     constructor(client, info) {
         /**
@@ -65,6 +67,14 @@ class Game {
             this._throttles.set(userID, throttle);
         }
         return throttle;
+    }
+
+    /**
+     * Saves the data of the game to a json file
+     * @param {string} data 
+     */
+    save(data) {
+        fs.writeFileSync('./games/data/' + this.name.toLowerCase() + '.json', JSON.stringify(data));
     }
 
 }
