@@ -1,18 +1,9 @@
 const { Command } = require('discord.js-commando');
-const fs = require('fs');
-
-const audioFiles = [];
-fs.readdir("./commands/voice/audio/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach((file) => {
-        let fileName = file.split(".")[0]
-        audioFiles[fileName] = {
-            name: fileName,
-            file: `./commands/voice/audio/${file}`,
-        };
-    });
-});
-
+const { fetchTunes } = require('../../helper');
+// Get our tunes from our api
+fetchTunes().then(e => {
+    tunes = e;
+})
 
 module.exports = class PlayVCCommand extends Command {
     constructor(client) {
@@ -37,7 +28,7 @@ module.exports = class PlayVCCommand extends Command {
         if (args.sound === 'list') {
             let data = [];
 
-            Object.values(audioFiles).forEach((r) => {
+            Object.values(tunes).forEach((r) => {
                 data += `**gilby play ${r.name}**\n`;
             });
 
@@ -66,9 +57,9 @@ module.exports = class PlayVCCommand extends Command {
             return;
         }
         if (!message.member.voice.channel) { return message.channel.send(`I can't join you currently :(`); }
-        if (audioFiles[args.sound]) {
+        if (tunes[args.sound]) {
             const connection = await message.member.voice.channel.join();
-            connection.play(audioFiles[args.sound].file);
+            connection.play(tunes[args.sound].path);
         } else {
             message.reply(":face_with_raised_eyebrow: Seems like I don't have that tune, run `gilby play` to get the ones that I do have.")
         }

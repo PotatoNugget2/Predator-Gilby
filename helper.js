@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 module.exports = {
     /**
      * Loads the specified function from loader data
@@ -15,4 +17,19 @@ module.exports = {
             return false;
         }
     },
+    
+    /**
+     * Grabs tunes from our api
+     * @returns Promise
+     */
+    fetchTunes: function() {
+        return new Promise((resolve, reject) => {
+            fetch('https://jcra.dev/api/gilby')
+                .catch((e) => reject(e))
+                .then(res => res.json())
+                .then((json) => {
+                    resolve(json.tunes);
+                });
+        });
+    }
 };
