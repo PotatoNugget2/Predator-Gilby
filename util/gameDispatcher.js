@@ -1,6 +1,6 @@
 module.exports.run = async (client, msg) => {
     // Check if message has our command prefix
-    if ((msg.content.indexOf(client.commandPrefix) !== 0) && !client._exclusiveGames[msg.channel.id]) { return; }
+    if (!msg.content.toLowerCase().startsWith(client.commandPrefix) && !client._exclusiveGames[msg.channel.id]) { return; }
     // Get the args
     let args = msg.content.trim().split(/ +/g);
     // Load the game
