@@ -74,7 +74,11 @@ class Game {
      * @param {string} data 
      */
     save(data) {
-        fs.writeFileSync('./games/data/' + this.name.toLowerCase() + '.json', JSON.stringify(data));
+        fs.writeFile('./games/data/' + this.name.toLowerCase() + '.json', JSON.stringify(data), (err) => {
+            if (err) {
+                console.log(err);
+            }
+        });
     }
 
 }
