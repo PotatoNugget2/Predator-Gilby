@@ -63,7 +63,9 @@ module.exports = class PlayVCCommand extends Command {
         if (!message.member.voice.channel) { return message.channel.send(`I can't join you currently :(`); }
         if (tunes[args.sound]) {
             const connection = await message.member.voice.channel.join();
-            connection.play(tunes[args.sound].path);
+            connection.play(tunes[args.sound].path, {
+                volume: tunes[args.sound].volume,
+            });
         } else {
             message.reply(":face_with_raised_eyebrow: Seems like I don't have that tune, run `gilby play` to get the ones that I do have.")
         }
