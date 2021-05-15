@@ -1,0 +1,15 @@
+{
+    "token": "",
+    "response_reaction": "🍉",
+    "disabled_cat": {},
+    "divider": [],
+    "supporter": {},
+    "games": {
+        "counting": {
+            "channel": ""
+        },
+        "main": {
+            "channel": ""
+        }
+    }
+}
